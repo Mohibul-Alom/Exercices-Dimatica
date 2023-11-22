@@ -1,0 +1,10 @@
+db.collection('users').find({
+  $or: [
+    { email: searchText }, // Exact match on the email
+    { first_name: { $regex: `^${searchText}`, $options: 'i' } }, // First name starts with searchText, case-insensitive
+    { last_name: { $regex: `^${searchText}`, $options: 'i' } }, // Last name starts with searchText, case-insensitive
+  ],
+  last_connection_date: {
+    $gte: new Date(new Date().setMonth(new Date().getMonth() - 6)) // Users who logged in within the last 6 months
+  }
+});

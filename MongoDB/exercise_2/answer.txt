@@ -1,0 +1,11 @@
+db.collection('users').aggregate([
+  {
+    $unwind: "$roles" // Deconstructs the roles array field to output a document for each role
+  },
+  {
+    $group: {
+      _id: "$roles", // Group by roles
+      users: { $push: "$email" } // Push each user's email into the users array for the group
+    }
+  }
+]);

@@ -1,0 +1,19 @@
+Exercice: MongoDb update (5 points)
+
+MongoDb collection users with schema
+
+  {
+    email: string;
+    first_name: string;
+    last_name: string;
+    roles: string[];
+    last_connection_date: Date;
+    addresses: {
+        zip: number;
+        city: string;
+    }[]:
+  }
+
+Update document ObjectId("5cd96d3ed5d3e20029627d4a"), modify addresses with zip 75001 and replace city with Paris 1
+
+db.collections('users').updateOne(...);

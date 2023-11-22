@@ -1,0 +1,4 @@
+db.collection('users').updateOne(
+  { _id: ObjectId("5cd96d3ed5d3e20029627d4a") }, // Filter to identify the document to update
+  { $addToSet: { roles: "admin" } } // Update operation to add "admin" role to the roles array
+);

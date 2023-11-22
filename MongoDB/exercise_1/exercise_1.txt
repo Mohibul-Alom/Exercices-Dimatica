@@ -1,0 +1,12 @@
+  {
+    email: string;
+    first_name: string;
+    last_name: string;
+    roles: string[];
+    last_connection_date: Date;
+  }
+
+
+Complete the query, you have a variable that contains a piece of text to search for. Search by exact email, starts with first or last name and only users logged in for 6 months
+
+db.collections('users').find(...);
